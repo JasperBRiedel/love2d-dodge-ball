@@ -37,7 +37,7 @@ function menu:draw()
   -- love.graphics.setColor(252, 58, 81) -- love versions prior to 0.11.0
   love.graphics.setColor(252 / 255, 58 / 255, 81 / 255)
   love.graphics.setFont(self.assets.title)
-  love.graphics.print("Sphere Runner", menu_x + 40, menu_y + 20)
+  love.graphics.print("Dodge ball", menu_x + 40, menu_y + 20)
   love.graphics.setFont(self.assets.default)
 
   -- Draw help text
