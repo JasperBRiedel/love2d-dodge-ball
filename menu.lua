@@ -28,6 +28,10 @@ function menu:draw()
 
   local menu_x, menu_y = window_width_center - menu_width_center, window_height_center - menu_height_center
 
+  -- Set window background
+  -- love.graphics.setBackgroundColor(14, 36, 48) -- love versions prior to 0.11.0
+  love.graphics.setBackgroundColor(14 / 255, 36 / 255, 48 / 255)
+
   -- Draw background rectangle
   -- love.graphics.setColor(232, 213, 183) -- love version prior to 0.11.0
   love.graphics.setColor(232 / 255 ,213 / 255, 183 / 255) -- love version prior to 0.11.0
