@@ -1,7 +1,8 @@
 game = {
   current_state = "menu",
   states = {
-    menu = require("menu")
+    menu = require("menu"),
+    play = require("play")
   }
 }
 

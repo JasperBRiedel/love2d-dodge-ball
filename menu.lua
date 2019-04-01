@@ -76,7 +76,7 @@ function menu:keypressed(key)
 
   if key == "space" or key == "return" then
     if self.selected_item == 1 then
-      game:change_state("game")
+      game:change_state("play")
     elseif self.selected_item == 2 then
       game:change_state("scoreboard")
     elseif self.selected_item == 3 then
