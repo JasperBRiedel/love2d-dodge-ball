@@ -2,7 +2,8 @@ game = {
   current_state = "menu",
   states = {
     menu = require("menu"),
-    play = require("play")
+    play = require("play"),
+    scoreboard = require("scoreboard")
   }
 }
 

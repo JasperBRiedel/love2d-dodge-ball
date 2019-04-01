@@ -73,7 +73,8 @@ function play:update(dt)
   for k, ball in pairs(self.balls) do
     local ball_distance_to_player = (((self.player.x + self.player.width / 2) - ball.x)^2+((self.player.y + self.player.height / 2) - ball.y)^2)^0.5
     if (ball_distance_to_player - self.player.width / 2) < ball.size then
-      game:change_state("menu")
+      game.states.scoreboard:add_score(self.game_time_score)
+      game:change_state("scoreboard")
     end
   end
 end
