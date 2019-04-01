@@ -13,6 +13,11 @@ local menu = {
   selected_item = 1
 }
 
+function menu:entered()
+  -- Reset menu to first item when state entered
+  self.selected_item = 1
+end
+
 function menu:draw()
   -- Calculate drawable positions
   local window_width, window_height = love.graphics.getDimensions()
