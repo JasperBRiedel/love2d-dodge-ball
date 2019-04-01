@@ -48,7 +48,6 @@ function scoreboard:add_score(score)
   score_file:open("w")
 
   for k, score in pairs(scores) do
-    print("Writing score: " .. score)
     score_file:write(score .. "\n")
   end
 
