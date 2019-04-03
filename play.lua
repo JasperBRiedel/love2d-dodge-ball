@@ -1,7 +1,10 @@
 local play = {
   assets = {
     score = love.graphics.newFont(20),
-    default = love.graphics.getFont()
+    default = love.graphics.getFont(),
+    spawn = love.audio.newSource("spawn.wav", "static"),
+    died = love.audio.newSource("died.wav", "static"),
+    ball = love.audio.newSource("ball.wav", "static")
   },
   balls = {},
   player = {
@@ -39,6 +42,9 @@ function play:entered()
   self.balls = {}
 
   self.game_time_score = 0
+  if self.sound then
+    self.assets.spawn:play()
+  end
 end
 
 function play:update(dt)
@@ -70,6 +76,10 @@ function play:update(dt)
       y = -50
     }
     table.insert(self.balls, ball)
+
+    if self.sound then
+      self.assets.ball:play()
+    end
   end
 
   -- Apply ball movement
@@ -90,6 +100,9 @@ function play:update(dt)
     if (ball_distance_to_player - self.player.width / 2) < ball.size then
       game.states.scoreboard:add_score(self.game_time_score)
       game:change_state("scoreboard")
+      if self.sound then
+        self.assets.died:play()
+      end
     end
   end
 end
