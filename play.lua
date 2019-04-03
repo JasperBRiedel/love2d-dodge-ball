@@ -11,9 +11,24 @@ local play = {
     height = 40,
     speed = 300
   },
+  difficulty = 2,
+  sound = true,
   map_wall_width = 20,
   game_time_score = 0
 }
+
+function play:toggle_sound()
+  self.sound = not self.sound 
+  return self.sound 
+end
+
+function play:toggle_difficulty()
+  self.difficulty = self.difficulty + 1
+  if self.difficulty > 3 then
+    self.difficulty = 1
+  end
+  return self.difficulty
+end
 
 function play:entered()
   local window_width, window_height = love.graphics.getDimensions()
@@ -47,7 +62,7 @@ function play:update(dt)
   end 
 
   -- Spawn more balls if the time permits
-  while #self.balls < self.game_time_score / 4 do
+  while #self.balls < (self.game_time_score / 4) * self.difficulty do
     local ball = {
       size = love.math.random(30, 100),
       speed = love.math.random(50, 300),

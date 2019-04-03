@@ -14,6 +14,12 @@ local scoreboard = {
   }
 }
 
+function scoreboard:clear_scores()
+  local score_file = love.filesystem.newFile(self.scoreboard_file)
+  score_file:open("w")
+  score_file:close()
+end
+
 function scoreboard:load_scores()
   self.scores = {}
 

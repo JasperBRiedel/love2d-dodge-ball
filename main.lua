@@ -3,7 +3,8 @@ game = {
   states = {
     menu = require("menu"),
     play = require("play"),
-    scoreboard = require("scoreboard")
+    scoreboard = require("scoreboard"),
+    settings = require("settings")
   }
 }
 
