@@ -6,12 +6,7 @@ local scoreboard = {
   },
   scoreboard_file = "scores.txt",
   score_limit = 6,
-  scores = {
-    123,
-    456,
-    678,
-    910
-  }
+  scores = {}
 }
 
 function scoreboard:clear_scores()
