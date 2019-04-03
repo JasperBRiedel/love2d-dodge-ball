@@ -60,10 +60,10 @@ function play:update(dt)
   if love.keyboard.isDown("w", "up") and self.player.y > self.map_wall_width then
     self.player.y = self.player.y - self.player.speed * dt
   end 
-  if love.keyboard.isDown("s", "down") and self.player.y < window_height - self.map_wall_width - self.player.width then
+  if love.keyboard.isDown("s", "down") and self.player.y < window_height - self.map_wall_width - self.player.height then
     self.player.y = self.player.y + self.player.speed * dt
   end 
-  if love.keyboard.isDown("d", "right") and self.player.x < window_width - self.map_wall_width - self.player.height then
+  if love.keyboard.isDown("d", "right") and self.player.x < window_width - self.map_wall_width - self.player.width then
     self.player.x = self.player.x + self.player.speed * dt
   end 
 
@@ -99,10 +99,10 @@ function play:update(dt)
     local ball_distance_to_player = (((self.player.x + self.player.width / 2) - ball.x)^2+((self.player.y + self.player.height / 2) - ball.y)^2)^0.5
     if (ball_distance_to_player - self.player.width / 2) < ball.size then
       game.states.scoreboard:add_score(self.game_time_score)
-      game:change_state("scoreboard")
       if self.sound then
         self.assets.died:play()
       end
+      game:change_state("scoreboard")
     end
   end
 end
