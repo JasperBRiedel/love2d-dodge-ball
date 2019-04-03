@@ -51,7 +51,7 @@ function menu:draw()
   -- Draw menu text
   love.graphics.setFont(self.assets.menu)
   for i, item in ipairs(self.items) do
-    local item_x, item_y = menu_x + 40, menu_y + 50
+    local item_x, item_y = menu_x + 40, menu_y + 50 + 30 * i
 
     if i == self.selected_item then
       -- love.graphics.setColor(14, 36, 48) -- love versions prior to 0.11.0
@@ -60,7 +60,7 @@ function menu:draw()
       -- love.graphics.setColor(252, 58, 81) -- love versions prior to 0.11.0
       love.graphics.setColor(252 / 255, 58 / 255, 81 / 255)
     end
-    love.graphics.print(item, item_x, 30 * i + item_y)
+    love.graphics.print(item, item_x, item_y)
   end
   love.graphics.setFont(self.assets.default)
 
