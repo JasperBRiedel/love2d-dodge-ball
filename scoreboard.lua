@@ -91,11 +91,11 @@ function scoreboard:draw()
   -- Draw menu text
   love.graphics.setFont(self.assets.menu)
   for i, score in ipairs(self.scores) do
-    local score_x, score_y = scoreboard_x + 40, scoreboard_y + 50
+    local score_x, score_y = scoreboard_x + 40, scoreboard_y + 50 + 30 * i
 
     -- love.graphics.setColor(252, 58, 81) -- love versions prior to 0.11.0
     love.graphics.setColor(252 / 255, 58 / 255, 81 / 255)
-    love.graphics.print(score, score_x, 30 * i + score_y)
+    love.graphics.print(score, score_x, score_y)
   end
   love.graphics.setFont(self.assets.default)
 
