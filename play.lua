@@ -82,28 +82,27 @@ function play:update(dt)
     end
   end
 
-  -- Apply ball movement
-  for k, ball in pairs(self.balls) do
-    ball.y = ball.y + ball.speed * dt
-  end
-
-  -- Remove balls that have left the map
+  -- Apply ball update
   for i, ball in ipairs(self.balls) do
+    -- Remove balls that have left the map
     if ball.y > window_height + ball.size then
       table.remove(self.balls, i)
-    end
-  end
+    else 
 
-  -- Check collisions
-  for k, ball in pairs(self.balls) do
-    local ball_distance_to_player = (((self.player.x + self.player.width / 2) - ball.x)^2+((self.player.y + self.player.height / 2) - ball.y)^2)^0.5
-    if (ball_distance_to_player - self.player.width / 2) < ball.size then
-      game.states.scoreboard:add_score(self.game_time_score)
-      if self.sound then
-        self.assets.died:play()
+      -- apply ball speed
+      ball.y = ball.y + ball.speed * dt
+
+      -- check for collisions
+      local ball_distance_to_player = (((self.player.x + self.player.width / 2) - ball.x)^2+((self.player.y + self.player.height / 2) - ball.y)^2)^0.5
+      if (ball_distance_to_player - self.player.width / 2) < ball.size then
+        game.states.scoreboard:add_score(self.game_time_score)
+        if self.sound then
+          self.assets.died:play()
+        end
+        game:change_state("scoreboard")
       end
-      game:change_state("scoreboard")
     end
+
   end
 end
 
